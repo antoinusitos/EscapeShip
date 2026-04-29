@@ -1,0 +1,8 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/dev/MonoGame/PokeBots/Content/audio/bounce.wav","C:/dev/MonoGame/PokeBots/Content/bin/DesktopGL/audio/bounce.xnb","SoundEffectProcessor","SoundEffectContent",50664,50725,0,2048362
+"C:/dev/MonoGame/PokeBots/Content/audio/collect.wav","C:/dev/MonoGame/PokeBots/Content/bin/DesktopGL/audio/collect.xnb","SoundEffectProcessor","SoundEffectContent",22092,22153,0,1072143
+"C:/dev/MonoGame/PokeBots/Content/audio/theme.ogg","C:/dev/MonoGame/PokeBots/Content/bin/DesktopGL/audio/theme.xnb","SongProcessor","SongContent",1079706,123,0,6058372
+"C:/dev/MonoGame/PokeBots/Content/images/atlas-definition.xml","C:\dev\MonoGame\PokeBots\Content\bin\DesktopGL\images/atlas-definition.xml","CopyItem","File",914,914,0,0015252
+"C:/dev/MonoGame/PokeBots/Content/images/atlas.png","C:/dev/MonoGame/PokeBots/Content/bin/DesktopGL/images/atlas.xnb","TextureProcessor","Texture2DContent",1844,65621,0,0270178
+"C:/dev/MonoGame/PokeBots/Content/images/logo.png","C:/dev/MonoGame/PokeBots/Content/bin/DesktopGL/images/logo.xnb","TextureProcessor","Texture2DContent",16734,311381,0,0117642
+"C:/dev/MonoGame/PokeBots/Content/images/tilemap-definition.xml","C:\dev\MonoGame\PokeBots\Content\bin\DesktopGL\images/tilemap-definition.xml","CopyItem","File",694,694,0,0010002

@@ -1,0 +1,378 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\dev\\MonoGame\\EscapeShip\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7317BA17-B3B4-429A-BD31-6F2E22ECE284}|EscapeShip.csproj|c:\\dev\\monogame\\escapeship\\scenes\\titlescene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7317BA17-B3B4-429A-BD31-6F2E22ECE284}|EscapeShip.csproj|solutionrelative:scenes\\titlescene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7317BA17-B3B4-429A-BD31-6F2E22ECE284}|EscapeShip.csproj|c:\\dev\\monogame\\escapeship\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7317BA17-B3B4-429A-BD31-6F2E22ECE284}|EscapeShip.csproj|solutionrelative:game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7317BA17-B3B4-429A-BD31-6F2E22ECE284}|EscapeShip.csproj|c:\\dev\\monogame\\escapeship\\scenes\\gamescene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7317BA17-B3B4-429A-BD31-6F2E22ECE284}|EscapeShip.csproj|solutionrelative:scenes\\gamescene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7317BA17-B3B4-429A-BD31-6F2E22ECE284}|EscapeShip.csproj|c:\\dev\\monogame\\escapeship\\content\\images\\tilemap-definition2.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{7317BA17-B3B4-429A-BD31-6F2E22ECE284}|EscapeShip.csproj|solutionrelative:content\\images\\tilemap-definition2.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9B1DBF5-C128-4A84-98A6-B13745576E7B}|..\\MonoGameLibrary\\MonoGameLibrary.csproj|c:\\dev\\monogame\\monogamelibrary\\managers\\ressourcemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9B1DBF5-C128-4A84-98A6-B13745576E7B}|..\\MonoGameLibrary\\MonoGameLibrary.csproj|c:\\dev\\monogame\\monogamelibrary\\managers\\shipgeneratormanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9B1DBF5-C128-4A84-98A6-B13745576E7B}|..\\MonoGameLibrary\\MonoGameLibrary.csproj|c:\\dev\\monogame\\monogamelibrary\\graphics\\textureatlas .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7317BA17-B3B4-429A-BD31-6F2E22ECE284}|EscapeShip.csproj|c:\\dev\\monogame\\escapeship\\misc\\escapeshipgamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7317BA17-B3B4-429A-BD31-6F2E22ECE284}|EscapeShip.csproj|solutionrelative:misc\\escapeshipgamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9B1DBF5-C128-4A84-98A6-B13745576E7B}|..\\MonoGameLibrary\\MonoGameLibrary.csproj|c:\\dev\\monogame\\monogamelibrary\\debug\\debug.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7317BA17-B3B4-429A-BD31-6F2E22ECE284}|EscapeShip.csproj|c:\\dev\\monogame\\escapeship\\entities\\slime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7317BA17-B3B4-429A-BD31-6F2E22ECE284}|EscapeShip.csproj|solutionrelative:entities\\slime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9B1DBF5-C128-4A84-98A6-B13745576E7B}|..\\MonoGameLibrary\\MonoGameLibrary.csproj|c:\\dev\\monogame\\monogamelibrary\\systems\\collisionsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9B1DBF5-C128-4A84-98A6-B13745576E7B}|..\\MonoGameLibrary\\MonoGameLibrary.csproj|c:\\dev\\monogame\\monogamelibrary\\misc\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9B1DBF5-C128-4A84-98A6-B13745576E7B}|..\\MonoGameLibrary\\MonoGameLibrary.csproj|c:\\dev\\monogame\\monogamelibrary\\managers\\scenemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9B1DBF5-C128-4A84-98A6-B13745576E7B}|..\\MonoGameLibrary\\MonoGameLibrary.csproj|c:\\dev\\monogame\\monogamelibrary\\core.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9B1DBF5-C128-4A84-98A6-B13745576E7B}|..\\MonoGameLibrary\\MonoGameLibrary.csproj|c:\\dev\\monogame\\monogamelibrary\\shapes\\circle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9B1DBF5-C128-4A84-98A6-B13745576E7B}|..\\MonoGameLibrary\\MonoGameLibrary.csproj|c:\\dev\\monogame\\monogamelibrary\\input\\inputmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9B1DBF5-C128-4A84-98A6-B13745576E7B}|..\\MonoGameLibrary\\MonoGameLibrary.csproj|c:\\dev\\monogame\\monogamelibrary\\scenes\\scene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9B1DBF5-C128-4A84-98A6-B13745576E7B}|..\\MonoGameLibrary\\MonoGameLibrary.csproj|c:\\dev\\monogame\\monogamelibrary\\managers\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9B1DBF5-C128-4A84-98A6-B13745576E7B}|..\\MonoGameLibrary\\MonoGameLibrary.csproj|c:\\dev\\monogame\\monogamelibrary\\systems\\movesystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9B1DBF5-C128-4A84-98A6-B13745576E7B}|..\\MonoGameLibrary\\MonoGameLibrary.csproj|c:\\dev\\monogame\\monogamelibrary\\systems\\updatesystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9B1DBF5-C128-4A84-98A6-B13745576E7B}|..\\MonoGameLibrary\\MonoGameLibrary.csproj|c:\\dev\\monogame\\monogamelibrary\\systems\\rendersystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9B1DBF5-C128-4A84-98A6-B13745576E7B}|..\\MonoGameLibrary\\MonoGameLibrary.csproj|c:\\dev\\monogame\\monogamelibrary\\systems\\gamesytem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 223,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "tilemap-definition2.xml",
+              "DocumentMoniker": "C:\\dev\\MonoGame\\EscapeShip\\Content\\images\\tilemap-definition2.xml",
+              "RelativeDocumentMoniker": "Content\\images\\tilemap-definition2.xml",
+              "ToolTip": "C:\\dev\\MonoGame\\EscapeShip\\Content\\images\\tilemap-definition2.xml",
+              "RelativeToolTip": "Content\\images\\tilemap-definition2.xml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2026-04-29T22:23:33.931Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ShipGeneratorManager.cs",
+              "DocumentMoniker": "C:\\dev\\MonoGame\\MonoGameLibrary\\Managers\\ShipGeneratorManager.cs",
+              "RelativeDocumentMoniker": "..\\MonoGameLibrary\\Managers\\ShipGeneratorManager.cs",
+              "ToolTip": "C:\\dev\\MonoGame\\MonoGameLibrary\\Managers\\ShipGeneratorManager.cs",
+              "RelativeToolTip": "..\\MonoGameLibrary\\Managers\\ShipGeneratorManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-29T22:18:30.05Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TextureAtlas .cs",
+              "DocumentMoniker": "C:\\dev\\MonoGame\\MonoGameLibrary\\Graphics\\TextureAtlas .cs",
+              "RelativeDocumentMoniker": "..\\MonoGameLibrary\\Graphics\\TextureAtlas .cs",
+              "ToolTip": "C:\\dev\\MonoGame\\MonoGameLibrary\\Graphics\\TextureAtlas .cs",
+              "RelativeToolTip": "..\\MonoGameLibrary\\Graphics\\TextureAtlas .cs",
+              "ViewState": "AgIAAHYAAAAAAAAAAAAawJMAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-29T13:38:41.975Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RessourceManager.cs",
+              "DocumentMoniker": "C:\\dev\\MonoGame\\MonoGameLibrary\\Managers\\RessourceManager.cs",
+              "RelativeDocumentMoniker": "..\\MonoGameLibrary\\Managers\\RessourceManager.cs",
+              "ToolTip": "C:\\dev\\MonoGame\\MonoGameLibrary\\Managers\\RessourceManager.cs",
+              "RelativeToolTip": "..\\MonoGameLibrary\\Managers\\RessourceManager.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAzwFsAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-29T13:38:18.259Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Entity.cs",
+              "DocumentMoniker": "C:\\dev\\MonoGame\\MonoGameLibrary\\Misc\\Entity.cs",
+              "RelativeDocumentMoniker": "..\\MonoGameLibrary\\Misc\\Entity.cs",
+              "ToolTip": "C:\\dev\\MonoGame\\MonoGameLibrary\\Misc\\Entity.cs",
+              "RelativeToolTip": "..\\MonoGameLibrary\\Misc\\Entity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-27T20:03:20.455Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Debug.cs",
+              "DocumentMoniker": "C:\\dev\\MonoGame\\MonoGameLibrary\\Debug\\Debug.cs",
+              "RelativeDocumentMoniker": "..\\MonoGameLibrary\\Debug\\Debug.cs",
+              "ToolTip": "C:\\dev\\MonoGame\\MonoGameLibrary\\Debug\\Debug.cs",
+              "RelativeToolTip": "..\\MonoGameLibrary\\Debug\\Debug.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-29T15:18:51.874Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CollisionSystem.cs",
+              "DocumentMoniker": "C:\\dev\\MonoGame\\MonoGameLibrary\\Systems\\CollisionSystem.cs",
+              "RelativeDocumentMoniker": "..\\MonoGameLibrary\\Systems\\CollisionSystem.cs",
+              "ToolTip": "C:\\dev\\MonoGame\\MonoGameLibrary\\Systems\\CollisionSystem.cs",
+              "RelativeToolTip": "..\\MonoGameLibrary\\Systems\\CollisionSystem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-27T20:01:31.423Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Core.cs",
+              "DocumentMoniker": "C:\\dev\\MonoGame\\MonoGameLibrary\\Core.cs",
+              "RelativeDocumentMoniker": "..\\MonoGameLibrary\\Core.cs",
+              "ToolTip": "C:\\dev\\MonoGame\\MonoGameLibrary\\Core.cs",
+              "RelativeToolTip": "..\\MonoGameLibrary\\Core.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAowHoAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-27T20:07:52.884Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "InputManager.cs",
+              "DocumentMoniker": "C:\\dev\\MonoGame\\MonoGameLibrary\\Input\\InputManager.cs",
+              "RelativeDocumentMoniker": "..\\MonoGameLibrary\\Input\\InputManager.cs",
+              "ToolTip": "C:\\dev\\MonoGame\\MonoGameLibrary\\Input\\InputManager.cs",
+              "RelativeToolTip": "..\\MonoGameLibrary\\Input\\InputManager.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAowCAAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-29T14:04:31.848Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "SceneManager.cs",
+              "DocumentMoniker": "C:\\dev\\MonoGame\\MonoGameLibrary\\Managers\\SceneManager.cs",
+              "RelativeDocumentMoniker": "..\\MonoGameLibrary\\Managers\\SceneManager.cs",
+              "ToolTip": "C:\\dev\\MonoGame\\MonoGameLibrary\\Managers\\SceneManager.cs",
+              "RelativeToolTip": "..\\MonoGameLibrary\\Managers\\SceneManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-27T20:08:55.681Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Circle.cs",
+              "DocumentMoniker": "C:\\dev\\MonoGame\\MonoGameLibrary\\Shapes\\Circle.cs",
+              "RelativeDocumentMoniker": "..\\MonoGameLibrary\\Shapes\\Circle.cs",
+              "ToolTip": "C:\\dev\\MonoGame\\MonoGameLibrary\\Shapes\\Circle.cs",
+              "RelativeToolTip": "..\\MonoGameLibrary\\Shapes\\Circle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-28T08:54:10.117Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "UpdateSystem.cs",
+              "DocumentMoniker": "C:\\dev\\MonoGame\\MonoGameLibrary\\Systems\\UpdateSystem.cs",
+              "RelativeDocumentMoniker": "..\\MonoGameLibrary\\Systems\\UpdateSystem.cs",
+              "ToolTip": "C:\\dev\\MonoGame\\MonoGameLibrary\\Systems\\UpdateSystem.cs",
+              "RelativeToolTip": "..\\MonoGameLibrary\\Systems\\UpdateSystem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-27T20:17:34.731Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Scene.cs",
+              "DocumentMoniker": "C:\\dev\\MonoGame\\MonoGameLibrary\\Scenes\\Scene.cs",
+              "RelativeDocumentMoniker": "..\\MonoGameLibrary\\Scenes\\Scene.cs",
+              "ToolTip": "C:\\dev\\MonoGame\\MonoGameLibrary\\Scenes\\Scene.cs",
+              "RelativeToolTip": "..\\MonoGameLibrary\\Scenes\\Scene.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAQwCIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-27T20:03:03.898Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\dev\\MonoGame\\MonoGameLibrary\\Managers\\GameManager.cs",
+              "RelativeDocumentMoniker": "..\\MonoGameLibrary\\Managers\\GameManager.cs",
+              "ToolTip": "C:\\dev\\MonoGame\\MonoGameLibrary\\Managers\\GameManager.cs",
+              "RelativeToolTip": "..\\MonoGameLibrary\\Managers\\GameManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-28T11:24:51.026Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "MoveSystem.cs",
+              "DocumentMoniker": "C:\\dev\\MonoGame\\MonoGameLibrary\\Systems\\MoveSystem.cs",
+              "RelativeDocumentMoniker": "..\\MonoGameLibrary\\Systems\\MoveSystem.cs",
+              "ToolTip": "C:\\dev\\MonoGame\\MonoGameLibrary\\Systems\\MoveSystem.cs",
+              "RelativeToolTip": "..\\MonoGameLibrary\\Systems\\MoveSystem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-27T20:02:00.472Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "RenderSystem.cs",
+              "DocumentMoniker": "C:\\dev\\MonoGame\\MonoGameLibrary\\Systems\\RenderSystem.cs",
+              "RelativeDocumentMoniker": "..\\MonoGameLibrary\\Systems\\RenderSystem.cs",
+              "ToolTip": "C:\\dev\\MonoGame\\MonoGameLibrary\\Systems\\RenderSystem.cs",
+              "RelativeToolTip": "..\\MonoGameLibrary\\Systems\\RenderSystem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-27T20:04:36.603Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "GameSytem.cs",
+              "DocumentMoniker": "C:\\dev\\MonoGame\\MonoGameLibrary\\Systems\\GameSytem.cs",
+              "RelativeDocumentMoniker": "..\\MonoGameLibrary\\Systems\\GameSytem.cs",
+              "ToolTip": "C:\\dev\\MonoGame\\MonoGameLibrary\\Systems\\GameSytem.cs",
+              "RelativeToolTip": "..\\MonoGameLibrary\\Systems\\GameSytem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-27T20:00:20.617Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 285,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GameScene.cs",
+              "DocumentMoniker": "C:\\dev\\MonoGame\\EscapeShip\\Scenes\\GameScene.cs",
+              "RelativeDocumentMoniker": "Scenes\\GameScene.cs",
+              "ToolTip": "C:\\dev\\MonoGame\\EscapeShip\\Scenes\\GameScene.cs",
+              "RelativeToolTip": "Scenes\\GameScene.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-27T13:52:41.187Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EscapeShipGameManager.cs",
+              "DocumentMoniker": "C:\\dev\\MonoGame\\EscapeShip\\Misc\\EscapeShipGameManager.cs",
+              "RelativeDocumentMoniker": "Misc\\EscapeShipGameManager.cs",
+              "ToolTip": "C:\\dev\\MonoGame\\EscapeShip\\Misc\\EscapeShipGameManager.cs",
+              "RelativeToolTip": "Misc\\EscapeShipGameManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-28T11:26:02.586Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TitleScene.cs",
+              "DocumentMoniker": "C:\\dev\\MonoGame\\EscapeShip\\Scenes\\TitleScene.cs",
+              "RelativeDocumentMoniker": "Scenes\\TitleScene.cs",
+              "ToolTip": "C:\\dev\\MonoGame\\EscapeShip\\Scenes\\TitleScene.cs",
+              "RelativeToolTip": "Scenes\\TitleScene.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-27T13:51:31.996Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Game1.cs",
+              "DocumentMoniker": "C:\\dev\\MonoGame\\EscapeShip\\Game1.cs",
+              "RelativeDocumentMoniker": "Game1.cs",
+              "ToolTip": "C:\\dev\\MonoGame\\EscapeShip\\Game1.cs",
+              "RelativeToolTip": "Game1.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAiwBMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-24T07:34:52.117Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Slime.cs",
+              "DocumentMoniker": "C:\\dev\\MonoGame\\EscapeShip\\Entities\\Slime.cs",
+              "RelativeDocumentMoniker": "Entities\\Slime.cs",
+              "ToolTip": "C:\\dev\\MonoGame\\EscapeShip\\Entities\\Slime.cs",
+              "RelativeToolTip": "Entities\\Slime.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-28T09:13:07.099Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

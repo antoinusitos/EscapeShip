@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>Reach</Profile>
+  <Platform>DesktopGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/dev/MonoGame/EscapeShip/Content/audio/bounce.wav</File>
+    <File>C:/dev/MonoGame/EscapeShip/Content/audio/collect.wav</File>
+    <File>C:/dev/MonoGame/EscapeShip/Content/audio/theme.ogg</File>
+    <File>C:/dev/MonoGame/EscapeShip/Content/audio/ui.wav</File>
+    <File>C:/dev/MonoGame/EscapeShip/Content/fonts/04B_30_5x.spritefont</File>
+    <File>C:/dev/MonoGame/EscapeShip/Content/fonts/04B_30.spritefont</File>
+    <File>C:/dev/MonoGame/EscapeShip/Content/images/atlas.png</File>
+    <File>C:/dev/MonoGame/EscapeShip/Content/images/background-pattern.png</File>
+    <File>C:/dev/MonoGame/EscapeShip/Content/images/logo.png</File>
+    <File>C:/dev/MonoGame/EscapeShip/Content/images/tile.png</File>
+    <File>C:/dev/MonoGame/EscapeShip/Content/images/tilemap_packed.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>
