@@ -56,3 +56,4 @@ C:\dev\MonoGame\EscapeShip\bin\Debug\net9.0\Content\images\tile.xnb
 C:\dev\MonoGame\EscapeShip\bin\Debug\net9.0\Content\images\atlas-definition2.xml
 C:\dev\MonoGame\EscapeShip\bin\Debug\net9.0\Content\images\tilemap_packed.xnb
 C:\dev\MonoGame\EscapeShip\bin\Debug\net9.0\Content\images\tilemap-definition2.xml
+C:\dev\MonoGame\EscapeShip\obj\Debug\net9.0\EscapeShip.sourcelink.json

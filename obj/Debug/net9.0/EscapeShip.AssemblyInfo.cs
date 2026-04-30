@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EscapeShip")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0d6a9255a4cf5ab1fe5926da9d8f44caf2969792")]
 [assembly: System.Reflection.AssemblyProductAttribute("EscapeShip")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EscapeShip")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

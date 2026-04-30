@@ -24,9 +24,10 @@ public class Bat : Entity
         _canCollide = true;
         _canRender = true;
 
-        _collider = new Circle(
+        _collider = new Box(
             (int)(_position.X + (_animatedSprite.Width * 0.5f)),
             (int)(_position.Y + (_animatedSprite.Height * 0.5f)),
+            (int)(_animatedSprite.Width * 0.5f),
             (int)(_animatedSprite.Width * 0.5f)
         );
 
