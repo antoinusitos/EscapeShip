@@ -3,7 +3,6 @@ using Gum.Forms;
 using Gum.Forms.Controls;
 using MonoGameLibrary;
 using MonoGameGum;
-using Microsoft.Xna.Framework.Media;
 using MonoGameLibrary.Managers;
 using EscapeShip.Misc;
 
@@ -11,8 +10,6 @@ namespace EscapeShip;
 
 public class Game1 : Core
 {
-    
-
     private EscapeShipGameManager _escapeShipGameManager;
 
     public Game1() : base("Escape Ship", 1280, 720, false)

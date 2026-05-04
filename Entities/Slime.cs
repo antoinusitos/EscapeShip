@@ -1,5 +1,4 @@
-﻿using EscapeShip.Misc;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
@@ -28,12 +27,14 @@ public class Slime : Entity
         _canUpdate = true;
         _canCollide = true;
         _canRender = true;
+        _canMove = true;
+        _collisionType = CollisionType.DYNAMIC;
 
         _collider = new Box(
-            (int)(_position.X + (_animatedSprite.Width * 0.5f)),
-            (int)(_position.Y + (_animatedSprite.Height * 0.5f)),
-            (int)(_animatedSprite.Width * 0.5f),
-            (int)(_animatedSprite.Width * 0.5f)
+            (int)(_position.X),
+            (int)(_position.Y),
+            (int)(_sprite.Width),
+            (int)(_sprite.Height)
         );
 
         AssignRandomBatVelocity();
@@ -43,16 +44,9 @@ public class Slime : Entity
     {
         base.LoadContent(content);
 
-        // Create the texture atlas from the XML configuration file
-        TextureAtlas _atlas = RessourceManager.Instance.GetOrAddTextureAtlas("images/atlas-definition.xml");
-
-        _animatedSprite = _atlas.CreateAnimatedSprite("slime-animation");
-        _animatedSprite.Scale = new Vector2(4.0f, 4.0f);
-
         TextureAtlas _atlas2 = RessourceManager.Instance.GetOrAddTextureAtlas("images/atlas-definition2.xml");
 
         _sprite = RessourceManager.Instance.GetOrAddSprite("tile", _atlas2);
-        _sprite.Scale = new Vector2(4.0f, 4.0f);
 
         // Load the collect sound effect.
         _collectSoundEffect = RessourceManager.Instance.GetOrAddSoundEffect("audio/collect");
@@ -62,18 +56,20 @@ public class Slime : Entity
     {
         base.Update(gameTime);
 
-        Rectangle _roomBounds = SceneManager.Instance.ActiveScene.RoomBounds;
+        //Rectangle _roomBounds = SceneManager.Instance.ActiveScene.RoomBounds;
+
+        Velocity = Vector2.Zero;
 
         CheckKeyboardInput();
         CheckGamePadInput();
 
-        if (_collider.Left < _roomBounds.Left)
+        /*if (_collider.Left < _roomBounds.Left)
         {
             SetPosition(new Vector2(_roomBounds.Left, _position.Y));
         }
         else if (_collider.Right > _roomBounds.Right)
         {
-            SetPosition(new Vector2(_roomBounds.Right - _animatedSprite.Width, _position.Y));
+            SetPosition(new Vector2(_roomBounds.Right - _sprite.Width, _position.Y));
         }
 
         if (_collider.Top < _roomBounds.Top)
@@ -82,8 +78,8 @@ public class Slime : Entity
         }
         else if (_collider.Bottom > _roomBounds.Bottom)
         {
-            SetPosition(new Vector2(_position.X, _roomBounds.Bottom - _animatedSprite.Height));
-        }
+            SetPosition(new Vector2(_position.X, _roomBounds.Bottom - _sprite.Height));
+        }*/
     }
 
     private void CheckKeyboardInput()
@@ -102,28 +98,28 @@ public class Slime : Entity
         // If the W or Up keys are down, move the slime up on the screen.
         if (keyboard.IsKeyDown(Keys.W) || keyboard.IsKeyDown(Keys.Up))
         {
-            delta.Y -= speed;
+            Velocity.Y -= speed;
         }
 
         // if the S or Down keys are down, move the slime down on the screen.
         if (keyboard.IsKeyDown(Keys.S) || keyboard.IsKeyDown(Keys.Down))
         {
-            delta.Y += speed;
+            Velocity.Y += speed;
         }
 
         // If the A or Left keys are down, move the slime left on the screen.
         if (keyboard.IsKeyDown(Keys.A) || keyboard.IsKeyDown(Keys.Left))
         {
-            delta.X -= speed;
+            Velocity.X -= speed;
         }
 
         // If the D or Right keys are down, move the slime right on the screen.
         if (keyboard.IsKeyDown(Keys.D) || keyboard.IsKeyDown(Keys.Right))
         {
-            delta.X += speed;
+            Velocity.X += speed;
         }
 
-        SetPosition(_position + delta);
+        //SetPosition(_position + delta);
     }
 
     private void CheckGamePadInput()
@@ -152,7 +148,7 @@ public class Slime : Entity
         {
             delta.X += gamePadOne.LeftThumbStick.X * speed;
             delta.Y -= gamePadOne.LeftThumbStick.Y * speed;
-            SetPosition(_position +  delta);
+            //SetPosition(_position +  delta);
         }
         else
         {
@@ -180,7 +176,7 @@ public class Slime : Entity
                 delta.X += speed;
             }
 
-            SetPosition(_position + delta);
+            //SetPosition(_position + delta);
         }
     }
 
@@ -200,10 +196,5 @@ public class Slime : Entity
 
     public override void OnCollide(Entity other)
     {
-        // Play the collect sound effect.
-        Core.Audio.PlaySoundEffect(_collectSoundEffect);
-
-        // Increase the player's score.
-        EscapeShipGameManager.Instance.score += 100;
     }
 }

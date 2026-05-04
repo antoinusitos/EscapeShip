@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using EscapeShip.Misc;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using MonoGameLibrary;
@@ -20,15 +21,19 @@ public class Bat : Entity
 
     public override void Initialize()
     {
+        base.Initialize();
+
         _canUpdate = true;
         _canCollide = true;
         _canRender = true;
+        _canMove = true;
+        _collisionType = CollisionType.DYNAMIC;
 
         _collider = new Box(
-            (int)(_position.X + (_animatedSprite.Width * 0.5f)),
-            (int)(_position.Y + (_animatedSprite.Height * 0.5f)),
-            (int)(_animatedSprite.Width * 0.5f),
-            (int)(_animatedSprite.Width * 0.5f)
+            (int)(_position.X),
+            (int)(_position.Y),
+            (int)(_animatedSprite.Width),
+            (int)(_animatedSprite.Height)
         );
 
         AssignRandomBatVelocity();
@@ -42,7 +47,6 @@ public class Bat : Entity
         TextureAtlas _atlas = RessourceManager.Instance.GetOrAddTextureAtlas("images/atlas-definition.xml");
 
         _animatedSprite = _atlas.CreateAnimatedSprite("bat-animation");
-        _animatedSprite.Scale = new Vector2(4.0f, 4.0f);
 
         _bounceSoundEffect = RessourceManager.Instance.GetOrAddSoundEffect("audio/bounce");
     }
@@ -85,17 +89,19 @@ public class Bat : Entity
         if (normal != Vector2.Zero)
         {
             normal.Normalize();
-            _velocity = Vector2.Reflect(_velocity, normal);
+            Velocity = Vector2.Reflect(Velocity, normal);
 
             // Play the bounce sound effect.
             Core.Audio.PlaySoundEffect(_bounceSoundEffect);
         }
 
-        SetPosition(newBatPosition);
+        //SetPosition(newBatPosition);
     }
 
     private void AssignRandomBatVelocity()
     {
+        return;
+
         // Generate a random angle.
         float angle = (float)(Random.Shared.NextDouble() * Math.PI * 2);
 
@@ -105,7 +111,7 @@ public class Bat : Entity
         Vector2 direction = new Vector2(x, y);
 
         // Multiply the direction vector by the movement speed
-        _velocity = direction * MOVEMENT_SPEED;
+        Velocity = direction * MOVEMENT_SPEED;
     }
 
     public override void OnCollide(Entity other)
@@ -120,5 +126,8 @@ public class Bat : Entity
 
         // Assign a new random velocity to the bat.
         AssignRandomBatVelocity();
+
+        // Increase the player's score.
+        EscapeShipGameManager.Instance.score += 100;
     }
 }

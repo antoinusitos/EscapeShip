@@ -37,6 +37,12 @@ public class GameScene : Scene
     // Defines the origin used when drawing the score text.
     private Vector2 _timeTextOrigin;
 
+    // Cached display strings rebuilt only when values change.
+    private string _scoreText = "Score: 0";
+    private string _timeText = "Time: 10:0";
+    private int _cachedScore = -1;
+    private int _cachedTimeSeconds = -1;
+
     // A reference to the pause panel UI element so we can set its visibility
     // when the game is paused.
     private Panel _pausePanel;
@@ -78,13 +84,52 @@ public class GameScene : Scene
         slime.LoadContent(Content);
         slime.Initialize();
         slime.SetPosition(new Vector2(centerColumn * _tilemap.TileWidth, centerRow * _tilemap.TileHeight));
-        SceneManager.Instance.ActiveScene.RegisterEntity(slime);
+        slime.SetScale(4);
+        slime.Register();
 
         Bat bat = new Bat();
         bat.LoadContent(Content);
         bat.Initialize();
         bat.SetPosition(new Vector2(RoomBounds.Left, RoomBounds.Top));
-        SceneManager.Instance.ActiveScene.RegisterEntity(bat);
+        bat.SetScale(4);
+        bat.Register();
+
+        for (int i = 0; i < 16; i++)
+        {
+            WallTest wallTest = new WallTest();
+            wallTest.LoadContent(Content);
+            wallTest.Initialize();
+            wallTest.SetPosition(new Vector2(16 * i * 4, 0));
+            wallTest.SetScale(4);
+            wallTest.Register();
+        }
+        for (int i = 1; i < 9; i++)
+        {
+            WallTest wallTest = new WallTest();
+            wallTest.LoadContent(Content);
+            wallTest.Initialize();
+            wallTest.SetPosition(new Vector2(0, 16 * i * 4));
+            wallTest.SetScale(4);
+            wallTest.Register();
+        }
+        for (int i = 1; i < 16; i++)
+        {
+            WallTest wallTest = new WallTest();
+            wallTest.LoadContent(Content);
+            wallTest.Initialize();
+            wallTest.SetPosition(new Vector2(16 * i * 4, 16 * 8 * 4));
+            wallTest.SetScale(4);
+            wallTest.Register();
+        }
+        for (int i = 1; i < 8; i++)
+        {
+            WallTest wallTest = new WallTest();
+            wallTest.LoadContent(Content);
+            wallTest.Initialize();
+            wallTest.SetPosition(new Vector2(16 * 15 * 4, 16 * i * 4));
+            wallTest.SetScale(4);
+            wallTest.Register();
+        }
 
         // Set the position of the score text to align to the left edge of the
         // room bounds, and to vertically be at the center of the first tile.
@@ -207,10 +252,17 @@ public class GameScene : Scene
         // Draw the tilemap
         //_tilemap.Draw(Core.SpriteBatch);
 
+        int score = EscapeShipGameManager.Instance.score;
+        if (score != _cachedScore)
+        {
+            _cachedScore = score;
+            _scoreText = "Score: " + score.ToString();
+        }
+
         // Draw the score.
         Core.SpriteBatch.DrawString(
             _font,              // spriteFont
-            $"Score: {EscapeShipGameManager.Instance.score}", // text
+            _scoreText,         // text
             _scoreTextPosition, // position
             Color.White,        // color
             0.0f,               // rotation
@@ -221,16 +273,22 @@ public class GameScene : Scene
         );
 
         float sec = EscapeShipGameManager.Instance.time % 60;
-        float min = (EscapeShipGameManager.Instance.time -  sec) / 60;
+        float min = (EscapeShipGameManager.Instance.time - sec) / 60;
+        int timeSeconds = (int)sec;
+        if (timeSeconds != _cachedTimeSeconds)
+        {
+            _cachedTimeSeconds = timeSeconds;
+            _timeText = "Time: " + (int)min + ":" + timeSeconds.ToString();
+        }
 
-        // Draw the score.
+        // Draw the time.
         Core.SpriteBatch.DrawString(
             _font,              // spriteFont
-            $"Time: {min}:{(int)sec}", // text
-            _timeTextPosition, // position
+            _timeText,          // text
+            _timeTextPosition,  // position
             Color.White,        // color
             0.0f,               // rotation
-            _timeTextOrigin,   // origin
+            _timeTextOrigin,    // origin
             1.0f,               // scale
             SpriteEffects.None, // effects
             0.0f                // layerDepth
