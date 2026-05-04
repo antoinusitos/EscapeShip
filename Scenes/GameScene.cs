@@ -94,42 +94,37 @@ public class GameScene : Scene
         bat.SetScale(4);
         bat.Register();
 
-        for (int i = 0; i < 16; i++)
-        {
-            WallTest wallTest = new WallTest();
-            wallTest.LoadContent(Content);
-            wallTest.Initialize();
-            wallTest.SetPosition(new Vector2(16 * i * 4, 0));
-            wallTest.SetScale(4);
-            wallTest.Register();
-        }
-        for (int i = 1; i < 9; i++)
-        {
-            WallTest wallTest = new WallTest();
-            wallTest.LoadContent(Content);
-            wallTest.Initialize();
-            wallTest.SetPosition(new Vector2(0, 16 * i * 4));
-            wallTest.SetScale(4);
-            wallTest.Register();
-        }
-        for (int i = 1; i < 16; i++)
-        {
-            WallTest wallTest = new WallTest();
-            wallTest.LoadContent(Content);
-            wallTest.Initialize();
-            wallTest.SetPosition(new Vector2(16 * i * 4, 16 * 8 * 4));
-            wallTest.SetScale(4);
-            wallTest.Register();
-        }
-        for (int i = 1; i < 8; i++)
-        {
-            WallTest wallTest = new WallTest();
-            wallTest.LoadContent(Content);
-            wallTest.Initialize();
-            wallTest.SetPosition(new Vector2(16 * 15 * 4, 16 * i * 4));
-            wallTest.SetScale(4);
-            wallTest.Register();
-        }
+        WallTest wallTest = new WallTest();
+        wallTest.LoadContent(Content);
+        wallTest.Initialize();
+        wallTest.Collider.Width = 16 * 16;
+        wallTest.SetPosition(new Vector2(0, 0));
+        wallTest.SetScale(4);
+        wallTest.Register();
+
+        WallTest wallTestRight = new WallTest();
+        wallTestRight.LoadContent(Content);
+        wallTestRight.Initialize();
+        wallTestRight.Collider.Height = 16 * 9;
+        wallTestRight.SetPosition(new Vector2(0, 0));
+        wallTestRight.SetScale(4);
+        wallTestRight.Register();
+
+        WallTest wallTestBottom = new WallTest();
+        wallTestBottom.LoadContent(Content);
+        wallTestBottom.Initialize();
+        wallTestBottom.Collider.Width = 16 * 16;
+        wallTestBottom.SetPosition(new Vector2(0, 16 * 8 * 4));
+        wallTestBottom.SetScale(4);
+        wallTestBottom.Register();
+
+        WallTest wallTestLeft = new WallTest();
+        wallTestLeft.LoadContent(Content);
+        wallTestLeft.Initialize();
+        wallTestLeft.Collider.Height = 16 * 9;
+        wallTestLeft.SetPosition(new Vector2(16 * 15 * 4, 0));
+        wallTestLeft.SetScale(4);
+        wallTestLeft.Register();
 
         // Set the position of the score text to align to the left edge of the
         // room bounds, and to vertically be at the center of the first tile.
@@ -166,10 +161,10 @@ public class GameScene : Scene
         _uiSoundEffect = RessourceManager.Instance.GetOrAddSoundEffect("audio/ui");
     }
 
-    public override void Update(GameTime gameTime)
+    public override void Update(float deltaTime)
     {
         // Ensure the UI is always updated
-        GumService.Default.Update(gameTime);
+        GumService.Default.Update(TimeManager.Instance.gameTime);
 
         // If the game is paused, do not continue
         if (_pausePanel.IsVisible)
@@ -177,7 +172,7 @@ public class GameScene : Scene
             return;
         }
 
-        EscapeShipGameManager.Instance.time -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+        EscapeShipGameManager.Instance.time -= deltaTime;
 
         // Check for keyboard input and handle it.
         CheckKeyboardInput();
@@ -238,13 +233,13 @@ public class GameScene : Scene
         }
     }
 
-    public override void Draw(GameTime gameTime)
+    public override void Draw(float deltaTime)
     {
         // Draw the tilemap
         _tilemap.Draw(Core.SpriteBatch);
     }
 
-    public override void DrawUI(GameTime gameTime)
+    public override void DrawUI(float deltaTime)
     {
         // Begin the sprite batch to prepare for rendering.
         Core.SpriteBatch.Begin(samplerState: SamplerState.PointClamp);

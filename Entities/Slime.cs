@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
-using MonoGameLibrary;
 using MonoGameLibrary.Graphics;
 using MonoGameLibrary.Input;
 using MonoGameLibrary.Managers;
@@ -15,7 +14,7 @@ namespace EscapeShip.Entities;
 public class Slime : Entity
 {
     // Speed multiplier when moving.
-    private const float MOVEMENT_SPEED = 5.0f;
+    private const float MOVEMENT_SPEED = 400.0f;
 
     // The sound effect to play when the slime eats a bat.
     private SoundEffect _collectSoundEffect;
@@ -52,37 +51,19 @@ public class Slime : Entity
         _collectSoundEffect = RessourceManager.Instance.GetOrAddSoundEffect("audio/collect");
     }
 
-    public override void Update(GameTime gameTime)
+    public override void Update(float deltaTime)
     {
-        base.Update(gameTime);
+        base.Update(deltaTime);
 
         //Rectangle _roomBounds = SceneManager.Instance.ActiveScene.RoomBounds;
 
         Velocity = Vector2.Zero;
 
-        CheckKeyboardInput();
-        CheckGamePadInput();
-
-        /*if (_collider.Left < _roomBounds.Left)
-        {
-            SetPosition(new Vector2(_roomBounds.Left, _position.Y));
-        }
-        else if (_collider.Right > _roomBounds.Right)
-        {
-            SetPosition(new Vector2(_roomBounds.Right - _sprite.Width, _position.Y));
-        }
-
-        if (_collider.Top < _roomBounds.Top)
-        {
-            SetPosition(new Vector2(_position.X, _roomBounds.Top));
-        }
-        else if (_collider.Bottom > _roomBounds.Bottom)
-        {
-            SetPosition(new Vector2(_position.X, _roomBounds.Bottom - _sprite.Height));
-        }*/
+        CheckKeyboardInput(deltaTime);
+        CheckGamePadInput(deltaTime);
     }
 
-    private void CheckKeyboardInput()
+    private void CheckKeyboardInput(float deltaTime)
     {
         // Get a reference to the keyboard inof
         KeyboardInfo keyboard = InputManager.Instance.Keyboard;
@@ -94,35 +75,40 @@ public class Slime : Entity
             speed *= 1.5f;
         }
 
-        Vector2 delta = Vector2.Zero;
         // If the W or Up keys are down, move the slime up on the screen.
         if (keyboard.IsKeyDown(Keys.W) || keyboard.IsKeyDown(Keys.Up))
         {
-            Velocity.Y -= speed;
+            Velocity.Y -= 1;
         }
 
         // if the S or Down keys are down, move the slime down on the screen.
         if (keyboard.IsKeyDown(Keys.S) || keyboard.IsKeyDown(Keys.Down))
         {
-            Velocity.Y += speed;
+            Velocity.Y += 1;
         }
 
         // If the A or Left keys are down, move the slime left on the screen.
         if (keyboard.IsKeyDown(Keys.A) || keyboard.IsKeyDown(Keys.Left))
         {
-            Velocity.X -= speed;
+            Velocity.X -= 1;
         }
 
         // If the D or Right keys are down, move the slime right on the screen.
         if (keyboard.IsKeyDown(Keys.D) || keyboard.IsKeyDown(Keys.Right))
         {
-            Velocity.X += speed;
+            Velocity.X += 1;
         }
 
-        //SetPosition(_position + delta);
+        if (Velocity != Vector2.Zero)
+        {
+            Velocity.Normalize();
+            Velocity *= speed *deltaTime;
+        }
+
+        //Debug.Log("vel " + Velocity.Y);
     }
 
-    private void CheckGamePadInput()
+    private void CheckGamePadInput(float deltaTime)
     {
         // Get the gamepad info for gamepad one.
         GamePadInfo gamePadOne = InputManager.Instance.GamePads[(int)PlayerIndex.One];
@@ -140,43 +126,45 @@ public class Slime : Entity
             GamePad.SetVibration(PlayerIndex.One, 0.0f, 0.0f);
         }
 
-        Vector2 delta = Vector2.Zero;
         // Check thumbstick first since it has priority over which gamepad input
         // is movement.  It has priority since the thumbstick values provide a
         // more granular analog value that can be used for movement.
         if (gamePadOne.LeftThumbStick != Vector2.Zero)
         {
-            delta.X += gamePadOne.LeftThumbStick.X * speed;
-            delta.Y -= gamePadOne.LeftThumbStick.Y * speed;
-            //SetPosition(_position +  delta);
+            if (gamePadOne.LeftThumbStick.X >= 0.1f || gamePadOne.LeftThumbStick.X <= -0.1f)
+            {
+                Velocity.X += gamePadOne.LeftThumbStick.X * speed * deltaTime;
+            }
+            if (gamePadOne.LeftThumbStick.Y >= 0.1f || gamePadOne.LeftThumbStick.Y <= -0.1f)
+            {
+                Velocity.Y -= gamePadOne.LeftThumbStick.Y * speed * deltaTime;
+            }
         }
         else
         {
             // If DPadUp is down, move the slime up on the screen.
             if (gamePadOne.IsButtonDown(Buttons.DPadUp))
             {
-                delta.Y -= speed;
+                Velocity.Y -= speed * deltaTime;
             }
 
             // If DPadDown is down, move the slime down on the screen.
             if (gamePadOne.IsButtonDown(Buttons.DPadDown))
             {
-                delta.Y += speed;
+                Velocity.Y += speed * deltaTime;
             }
 
             // If DPapLeft is down, move the slime left on the screen.
             if (gamePadOne.IsButtonDown(Buttons.DPadLeft))
             {
-                delta.X -= speed;
+                Velocity.X -= speed * deltaTime;
             }
 
             // If DPadRight is down, move the slime right on the screen.
             if (gamePadOne.IsButtonDown(Buttons.DPadRight))
             {
-                delta.X += speed;
+                Velocity.X += speed * deltaTime;
             }
-
-            //SetPosition(_position + delta);
         }
     }
 

@@ -51,9 +51,9 @@ public class Bat : Entity
         _bounceSoundEffect = RessourceManager.Instance.GetOrAddSoundEffect("audio/bounce");
     }
 
-    public override void Update(GameTime gameTime)
+    public override void Update(float deltaTime)
     {
-        base.Update(gameTime);
+        base.Update(deltaTime);
 
         // Calculate the new position of the bat based on the velocity.
         Vector2 newBatPosition = _position + _velocity;

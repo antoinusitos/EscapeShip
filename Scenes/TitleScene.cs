@@ -134,7 +134,7 @@ public class TitleScene : Scene
         _themeSong = RessourceManager.Instance.GetOrAddSong("audio/theme");
     }
 
-    public override void UpdateUI(GameTime gameTime)
+    public override void UpdateUI(float deltatime)
     {
         // If the user presses enter, switch to the game scene.
         if (InputManager.Instance.Keyboard.WasKeyJustPressed(Keys.Enter))
@@ -144,7 +144,7 @@ public class TitleScene : Scene
 
         // Update the offsets for the background pattern wrapping so that it
         // scrolls down and to the right.
-        float offset = _scrollSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+        float offset = _scrollSpeed * deltatime;
         _backgroundOffset.X -= offset;
         _backgroundOffset.Y -= offset;
 
@@ -153,10 +153,10 @@ public class TitleScene : Scene
         _backgroundOffset.X %= _backgroundPattern.Width;
         _backgroundOffset.Y %= _backgroundPattern.Height;
 
-        GumService.Default.Update(gameTime);
+        GumService.Default.Update(TimeManager.Instance.gameTime);
     }
 
-    public override void DrawUI(GameTime gameTime)
+    public override void DrawUI(float deltatime)
     {
         Core.GraphicsDevice.Clear(new Color(32, 40, 78, 255));
 
