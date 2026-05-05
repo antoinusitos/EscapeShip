@@ -142,6 +142,8 @@ public class GameScene : Scene
 
         EscapeShipGameManager.Instance.time = 600;
 
+        CameraManager.Instance.Camera.Move(new Vector2(Core.GraphicsDevice.Viewport.Width / 2, Core.GraphicsDevice.Viewport.Height / 2));
+
         InitializeUI();
     }
 

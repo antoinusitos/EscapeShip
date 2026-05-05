@@ -100,18 +100,7 @@ public class Bat : Entity
 
     private void AssignRandomBatVelocity()
     {
-        return;
 
-        // Generate a random angle.
-        float angle = (float)(Random.Shared.NextDouble() * Math.PI * 2);
-
-        // Convert angle to a direction vector.
-        float x = (float)Math.Cos(angle);
-        float y = (float)Math.Sin(angle);
-        Vector2 direction = new Vector2(x, y);
-
-        // Multiply the direction vector by the movement speed
-        Velocity = direction * MOVEMENT_SPEED;
     }
 
     public override void OnCollide(Entity other)

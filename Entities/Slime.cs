@@ -76,25 +76,25 @@ public class Slime : Entity
         }
 
         // If the W or Up keys are down, move the slime up on the screen.
-        if (keyboard.IsKeyDown(Keys.W) || keyboard.IsKeyDown(Keys.Up))
+        if (keyboard.IsKeyDown(Keys.W))
         {
             Velocity.Y -= 1;
         }
 
         // if the S or Down keys are down, move the slime down on the screen.
-        if (keyboard.IsKeyDown(Keys.S) || keyboard.IsKeyDown(Keys.Down))
+        if (keyboard.IsKeyDown(Keys.S))
         {
             Velocity.Y += 1;
         }
 
         // If the A or Left keys are down, move the slime left on the screen.
-        if (keyboard.IsKeyDown(Keys.A) || keyboard.IsKeyDown(Keys.Left))
+        if (keyboard.IsKeyDown(Keys.A))
         {
             Velocity.X -= 1;
         }
 
         // If the D or Right keys are down, move the slime right on the screen.
-        if (keyboard.IsKeyDown(Keys.D) || keyboard.IsKeyDown(Keys.Right))
+        if (keyboard.IsKeyDown(Keys.D))
         {
             Velocity.X += 1;
         }
