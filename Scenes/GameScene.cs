@@ -17,6 +17,7 @@ using MonoGameLibrary.Scenes;
 using MonoGameLibrary.Managers;
 using EscapeShip.Entities;
 using EscapeShip.Misc;
+using MonoGameLibrary.Particles;
 
 namespace EscapeShip.Scenes;
 
@@ -58,10 +59,14 @@ public class GameScene : Scene
     // are created.
     private TextureAtlas _atlas;
 
+    private ParticleEmitter _particleEmitter;
+
     public override void Initialize()
     {
         // LoadContent is called during base.Initialize().
         base.Initialize();
+
+        float gameScale = 4.0f;
 
         // During the game scene, we want to disable exit on escape. Instead,
         // the escape key will be used to return back to the title screen
@@ -83,48 +88,51 @@ public class GameScene : Scene
         Slime slime = new Slime();
         slime.LoadContent(Content);
         slime.Initialize();
-        slime.SetPosition(new Vector2(centerColumn * _tilemap.TileWidth, centerRow * _tilemap.TileHeight));
+        slime.SetPosition(new Vector2(16 * gameScale));
         slime.SetScale(4);
         slime.Register();
-
-        Bat bat = new Bat();
-        bat.LoadContent(Content);
-        bat.Initialize();
-        bat.SetPosition(new Vector2(RoomBounds.Left, RoomBounds.Top));
-        bat.SetScale(4);
-        bat.Register();
 
         WallTest wallTest = new WallTest();
         wallTest.LoadContent(Content);
         wallTest.Initialize();
-        wallTest.Collider.Width = 16 * 16;
+        wallTest.Collider.Width = 16 * 50;
         wallTest.SetPosition(new Vector2(0, 0));
         wallTest.SetScale(4);
         wallTest.Register();
 
-        WallTest wallTestRight = new WallTest();
-        wallTestRight.LoadContent(Content);
-        wallTestRight.Initialize();
-        wallTestRight.Collider.Height = 16 * 9;
-        wallTestRight.SetPosition(new Vector2(0, 0));
-        wallTestRight.SetScale(4);
-        wallTestRight.Register();
+        WallTest wallTestLeft = new WallTest();
+        wallTestLeft.LoadContent(Content);
+        wallTestLeft.Initialize();
+        wallTestLeft.Collider.Height = 16 * 20;
+        wallTestLeft.SetPosition(new Vector2(0, 0));
+        wallTestLeft.SetScale(4);
+        wallTestLeft.Register();
 
         WallTest wallTestBottom = new WallTest();
         wallTestBottom.LoadContent(Content);
         wallTestBottom.Initialize();
-        wallTestBottom.Collider.Width = 16 * 16;
-        wallTestBottom.SetPosition(new Vector2(0, 16 * 8 * 4));
+        wallTestBottom.Collider.Width = 16 * 50;
+        wallTestBottom.SetPosition(new Vector2(0, 16 * 20 * gameScale));
         wallTestBottom.SetScale(4);
         wallTestBottom.Register();
 
-        WallTest wallTestLeft = new WallTest();
-        wallTestLeft.LoadContent(Content);
-        wallTestLeft.Initialize();
-        wallTestLeft.Collider.Height = 16 * 9;
-        wallTestLeft.SetPosition(new Vector2(16 * 15 * 4, 0));
-        wallTestLeft.SetScale(4);
-        wallTestLeft.Register();
+        WallTest wallTestRight = new WallTest();
+        wallTestRight.LoadContent(Content);
+        wallTestRight.Initialize();
+        wallTestRight.Collider.Height = 16 * 20;
+        wallTestRight.SetPosition(new Vector2(16 * 50 * gameScale, 0));
+        wallTestRight.SetScale(4);
+        wallTestRight.Register();
+
+        _particleEmitter = new ParticleEmitter();
+        _particleEmitter.SetPosition(new Vector2(0, 0));
+        _particleEmitter.SetScale(10);
+        _particleEmitter.SetSpawnRate(0.1f);
+        _particleEmitter.SetVelocity(-Vector2.UnitY);
+        _particleEmitter.SetLifeTime(1.5f);
+        _particleEmitter.SetOffsetMin(-Vector2.UnitX * 20);
+        _particleEmitter.SetOffsetMax(Vector2.UnitX * 20);
+        _particleEmitter.Register();
 
         // Set the position of the score text to align to the left edge of the
         // room bounds, and to vertically be at the center of the first tile.
