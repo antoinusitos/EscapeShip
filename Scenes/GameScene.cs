@@ -57,14 +57,14 @@ public class GameScene : Scene
         int centerRow = _tilemap.Rows / 2;
         int centerColumn = _tilemap.Columns / 2;
 
-        _slime = new Slime();
+        _slime = new Slime("Slime");
         _slime.LoadContent(Content);
         _slime.Initialize();
         _slime.SetPosition(new Vector2(16 * gameScale));
         _slime.SetScale(4);
         _slime.Register();
 
-        WallTest wallTest = new WallTest();
+        WallTest wallTest = new WallTest("wallTest");
         wallTest.LoadContent(Content);
         wallTest.Initialize();
         wallTest.Collider.Width = 16 * 50;
@@ -72,7 +72,7 @@ public class GameScene : Scene
         wallTest.SetScale(4);
         wallTest.Register();
 
-        WallTest wallTestLeft = new WallTest();
+        WallTest wallTestLeft = new WallTest("wallTestLeft");
         wallTestLeft.LoadContent(Content);
         wallTestLeft.Initialize();
         wallTestLeft.Collider.Height = 16 * 20;
@@ -80,7 +80,7 @@ public class GameScene : Scene
         wallTestLeft.SetScale(4);
         wallTestLeft.Register();
 
-        WallTest wallTestBottom = new WallTest();
+        WallTest wallTestBottom = new WallTest("wallTestBottom");
         wallTestBottom.LoadContent(Content);
         wallTestBottom.Initialize();
         wallTestBottom.Collider.Width = 16 * 50;
@@ -88,13 +88,20 @@ public class GameScene : Scene
         wallTestBottom.SetScale(4);
         wallTestBottom.Register();
 
-        WallTest wallTestRight = new WallTest();
+        WallTest wallTestRight = new WallTest("wallTestRight");
         wallTestRight.LoadContent(Content);
         wallTestRight.Initialize();
         wallTestRight.Collider.Height = 16 * 20;
         wallTestRight.SetPosition(new Vector2(16 * 50 * gameScale, 0));
         wallTestRight.SetScale(4);
         wallTestRight.Register();
+
+        Container container = new Container("container");
+        container.LoadContent(Content);
+        container.Initialize();
+        container.SetPosition(new Vector2(16 * 5 * gameScale, 16 * 5 * gameScale));
+        container.SetScale(4);
+        container.Register();
 
         _particleEmitter = new ParticleEmitter();
         _particleEmitter.SetPosition(new Vector2(0, 0));

@@ -19,6 +19,10 @@ public class Bat : Entity
     // Speed multiplier when moving.
     private const float MOVEMENT_SPEED = 5.0f;
 
+    public Bat(string name) : base(name)
+    {
+    }
+
     public override void Initialize()
     {
         base.Initialize();

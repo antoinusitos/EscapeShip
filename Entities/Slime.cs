@@ -19,6 +19,10 @@ public class Slime : Entity
     // The sound effect to play when the slime eats a bat.
     private SoundEffect _collectSoundEffect;
 
+    public Slime(string name) : base(name)
+    {
+    }
+
     public override void Initialize()
     {
         base.Initialize();
@@ -30,13 +34,11 @@ public class Slime : Entity
         _collisionType = CollisionType.DYNAMIC;
 
         _collider = new Box(
-            (int)(_position.X),
-            (int)(_position.Y),
-            (int)(_sprite.Width),
-            (int)(_sprite.Height)
+            _position.X,
+            _position.Y,
+            _sprite.Width,
+            _sprite.Height
         );
-
-        AssignRandomBatVelocity();
     }
 
     public override void LoadContent(ContentManager content)
@@ -166,23 +168,5 @@ public class Slime : Entity
                 Velocity.X += speed * deltaTime;
             }
         }
-    }
-
-    private void AssignRandomBatVelocity()
-    {
-        // Generate a random angle.
-        float angle = (float)(Random.Shared.NextDouble() * Math.PI * 2);
-
-        // Convert angle to a direction vector.
-        float x = (float)Math.Cos(angle);
-        float y = (float)Math.Sin(angle);
-        Vector2 direction = new Vector2(x, y);
-
-        // Multiply the direction vector by the movement speed
-        _velocity = direction * MOVEMENT_SPEED;
-    }
-
-    public override void OnCollide(Entity other)
-    {
     }
 }

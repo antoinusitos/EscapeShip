@@ -1,11 +1,14 @@
-﻿using Microsoft.Xna.Framework;
-using MonoGameLibrary.Misc;
+﻿using MonoGameLibrary.Misc;
 using MonoGameLibrary.Shapes;
 
 namespace EscapeShip.Entities;
 
 public class WallTest : Entity
 {
+    public WallTest(string name) : base(name)
+    {
+    }
+
     public override void Initialize()
     {
         base.Initialize();

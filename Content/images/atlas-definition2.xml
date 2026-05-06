@@ -3,6 +3,7 @@
     <Texture>images/tilemap_packed</Texture>
     <Regions>
       <Region name="tile" x="64" y="144" width="16" height="16" />
+      <Region name="container" x="48" y="80" width="16" height="16" />
     </Regions>
     <Animations>
     </Animations>
