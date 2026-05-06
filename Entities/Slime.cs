@@ -107,6 +107,11 @@ public class Slime : Entity
             Velocity *= speed *deltaTime;
         }
 
+        if (keyboard.WasKeyJustPressed(Keys.F)) 
+        {
+            SetWantToInteract(true);
+        }
+
         //Debug.Log("vel " + Velocity.Y);
     }
 
