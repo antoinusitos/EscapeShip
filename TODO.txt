@@ -1,5 +1,3 @@
 TODO :
 - add fist crate to loot
 - generate ship level with the correct size
-- camera follow player
-- Separate UI Class

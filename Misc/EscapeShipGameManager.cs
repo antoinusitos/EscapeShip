@@ -1,4 +1,5 @@
-﻿using MonoGameLibrary.Managers;
+﻿using EscapeShip.UI;
+using MonoGameLibrary.Managers;
 using System;
 
 namespace EscapeShip.Misc;
@@ -16,6 +17,8 @@ public class EscapeShipGameManager : GameManager
 
     public float time;
 
+    public bool paused = false;
+
     public EscapeShipGameManager() : base()
     {
         // Ensure that multiple cores are not created.
@@ -26,5 +29,10 @@ public class EscapeShipGameManager : GameManager
 
         // Store reference to engine for global member access.
         s_instance = this;
+    }
+
+    public void PauseGame()
+    {
+        ((GameSceneUI)UIManager.Instance.currentUIEntity).PauseGame();
     }
 }

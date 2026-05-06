@@ -23,43 +23,15 @@ namespace EscapeShip.Scenes;
 
 public class GameScene : Scene
 {
-    // The SpriteFont Description used to draw text
-    private SpriteFont _font;
-
-    // Defines the position to draw the score text at.
-    private Vector2 _scoreTextPosition;
-
-    // Defines the origin used when drawing the score text.
-    private Vector2 _scoreTextOrigin;
-
-    // Defines the position to draw the score text at.
-    private Vector2 _timeTextPosition;
-
-    // Defines the origin used when drawing the score text.
-    private Vector2 _timeTextOrigin;
-
-    // Cached display strings rebuilt only when values change.
-    private string _scoreText = "Score: 0";
-    private string _timeText = "Time: 10:0";
-    private int _cachedScore = -1;
-    private int _cachedTimeSeconds = -1;
-
-    // A reference to the pause panel UI element so we can set its visibility
-    // when the game is paused.
-    private Panel _pausePanel;
-
-    // A reference to the resume button UI element so we can focus it
-    // when the game is paused.
-    private AnimatedButton _resumeButton;
-
-    // The UI sound effect to play when a UI event is triggered.
-    private SoundEffect _uiSoundEffect;
-
     // Reference to the texture atlas that we can pass to UI elements when they
     // are created.
     private TextureAtlas _atlas;
 
     private ParticleEmitter _particleEmitter;
+
+    private Slime _slime;
+
+    float _cameraSpeed = 5;
 
     public override void Initialize()
     {
@@ -85,12 +57,12 @@ public class GameScene : Scene
         int centerRow = _tilemap.Rows / 2;
         int centerColumn = _tilemap.Columns / 2;
 
-        Slime slime = new Slime();
-        slime.LoadContent(Content);
-        slime.Initialize();
-        slime.SetPosition(new Vector2(16 * gameScale));
-        slime.SetScale(4);
-        slime.Register();
+        _slime = new Slime();
+        _slime.LoadContent(Content);
+        _slime.Initialize();
+        _slime.SetPosition(new Vector2(16 * gameScale));
+        _slime.SetScale(4);
+        _slime.Register();
 
         WallTest wallTest = new WallTest();
         wallTest.LoadContent(Content);
@@ -112,7 +84,7 @@ public class GameScene : Scene
         wallTestBottom.LoadContent(Content);
         wallTestBottom.Initialize();
         wallTestBottom.Collider.Width = 16 * 50;
-        wallTestBottom.SetPosition(new Vector2(0, 16 * 20 * gameScale));
+        wallTestBottom.SetPosition(new Vector2(0, 16 * 19 * gameScale));
         wallTestBottom.SetScale(4);
         wallTestBottom.Register();
 
@@ -134,20 +106,6 @@ public class GameScene : Scene
         _particleEmitter.SetOffsetMax(Vector2.UnitX * 20);
         _particleEmitter.Register();
 
-        // Set the position of the score text to align to the left edge of the
-        // room bounds, and to vertically be at the center of the first tile.
-        _scoreTextPosition = new Vector2(RoomBounds.Left, _tilemap.TileHeight * 0.5f);
-
-        _timeTextPosition = new Vector2(RoomBounds.Center.X, _tilemap.TileHeight * 0.5f);
-
-        // Set the origin of the text so it is left-centered.
-        float scoreTextYOrigin = _font.MeasureString("Score").Y * 0.5f;
-        _scoreTextOrigin = new Vector2(0, scoreTextYOrigin);
-
-        // Set the origin of the text so it is left-centered.
-        float timeTextOrigin = _font.MeasureString("Time").Y * 0.5f;
-        _timeTextOrigin = new Vector2(0, timeTextOrigin);
-
         EscapeShipGameManager.Instance.time = 600;
 
         CameraManager.Instance.Camera.Move(new Vector2(Core.GraphicsDevice.Viewport.Width / 2, Core.GraphicsDevice.Viewport.Height / 2));
@@ -163,12 +121,6 @@ public class GameScene : Scene
         // Create the tilemap from the XML configuration file.
         _tilemap = RessourceManager.Instance.GetOrAddTilemap("images/tilemap-definition2.xml");
         _tilemap.Scale = new Vector2(4.0f, 4.0f);
-
-        // Load the font.
-        _font = RessourceManager.Instance.GetOrAddSpriteFont("fonts/04B_30");
-
-        // Load the sound effect to play when ui actions occur.
-        _uiSoundEffect = RessourceManager.Instance.GetOrAddSoundEffect("audio/ui");
     }
 
     public override void Update(float deltaTime)
@@ -177,7 +129,7 @@ public class GameScene : Scene
         GumService.Default.Update(TimeManager.Instance.gameTime);
 
         // If the game is paused, do not continue
-        if (_pausePanel.IsVisible)
+        if (EscapeShipGameManager.Instance.paused)
         {
             return;
         }
@@ -189,6 +141,11 @@ public class GameScene : Scene
 
         // Check for gamepad input and handle it.
         CheckGamePadInput();
+
+        Vector2 pos = Vector2.Zero;
+        pos.X = MathHelper.Lerp(CameraManager.Instance.Camera.Position.X, _slime.Position.X + _slime.Velocity.X * 20, deltaTime * _cameraSpeed);
+        pos.Y = MathHelper.Lerp(CameraManager.Instance.Camera.Position.Y, _slime.Position.Y + _slime.Velocity.Y * 20, deltaTime * _cameraSpeed);
+        CameraManager.Instance.Camera.Position = pos;
     }
 
     private void CheckKeyboardInput()
@@ -199,7 +156,7 @@ public class GameScene : Scene
         // If the escape key is pressed, pause the game.
         if (keyboard.WasKeyJustPressed(Keys.Escape))
         {
-            PauseGame();
+            EscapeShipGameManager.Instance.PauseGame();
             return;
         }
 
@@ -238,7 +195,7 @@ public class GameScene : Scene
         // If the start button is pressed, pause the game
         if (gamePadOne.WasButtonJustPressed(Buttons.Start))
         {
-            PauseGame();
+            EscapeShipGameManager.Instance.PauseGame();
             return;
         }
     }
@@ -249,146 +206,15 @@ public class GameScene : Scene
         _tilemap.Draw(Core.SpriteBatch);
     }
 
-    public override void DrawUI(float deltaTime)
-    {
-        // Begin the sprite batch to prepare for rendering.
-        Core.SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
-
-        // Draw the tilemap
-        //_tilemap.Draw(Core.SpriteBatch);
-
-        int score = EscapeShipGameManager.Instance.score;
-        if (score != _cachedScore)
-        {
-            _cachedScore = score;
-            _scoreText = "Score: " + score.ToString();
-        }
-
-        // Draw the score.
-        Core.SpriteBatch.DrawString(
-            _font,              // spriteFont
-            _scoreText,         // text
-            _scoreTextPosition, // position
-            Color.White,        // color
-            0.0f,               // rotation
-            _scoreTextOrigin,   // origin
-            1.0f,               // scale
-            SpriteEffects.None, // effects
-            0.0f                // layerDepth
-        );
-
-        float sec = EscapeShipGameManager.Instance.time % 60;
-        float min = (EscapeShipGameManager.Instance.time - sec) / 60;
-        int timeSeconds = (int)sec;
-        if (timeSeconds != _cachedTimeSeconds)
-        {
-            _cachedTimeSeconds = timeSeconds;
-            _timeText = "Time: " + (int)min + ":" + timeSeconds.ToString();
-        }
-
-        // Draw the time.
-        Core.SpriteBatch.DrawString(
-            _font,              // spriteFont
-            _timeText,          // text
-            _timeTextPosition,  // position
-            Color.White,        // color
-            0.0f,               // rotation
-            _timeTextOrigin,    // origin
-            1.0f,               // scale
-            SpriteEffects.None, // effects
-            0.0f                // layerDepth
-        );
-
-        // Always end the sprite batch when finished.
-        Core.SpriteBatch.End();
-
-        GumService.Default.Draw();
-    }
-
-    private void PauseGame()
-    {
-        // Make the pause panel UI element visible.
-        _pausePanel.IsVisible = true;
-
-        // Set the resume button to have focus
-        _resumeButton.IsFocused = true;
-    }
-
-    private void CreatePausePanel()
-    {
-        _pausePanel = new Panel();
-        _pausePanel.Anchor(Anchor.Center);
-        _pausePanel.WidthUnits = DimensionUnitType.Absolute;
-        _pausePanel.HeightUnits = DimensionUnitType.Absolute;
-        _pausePanel.Height = 70;
-        _pausePanel.Width = 264;
-        _pausePanel.IsVisible = false;
-        _pausePanel.AddToRoot();
-
-        TextureRegion backgroundRegion = _atlas.GetRegion("panel-background");
-
-        NineSliceRuntime background = new NineSliceRuntime();
-        background.Dock(Dock.Fill);
-        background.Texture = backgroundRegion.Texture;
-        background.TextureAddress = TextureAddress.Custom;
-        background.TextureHeight = backgroundRegion.Height;
-        background.TextureLeft = backgroundRegion.SourceRectangle.Left;
-        background.TextureTop = backgroundRegion.SourceRectangle.Top;
-        background.TextureWidth = backgroundRegion.Width;
-        _pausePanel.AddChild(background);
-
-        TextRuntime textInstance = new TextRuntime();
-        textInstance.Text = "PAUSED";
-        textInstance.CustomFontFile = @"fonts/04b_30.fnt";
-        textInstance.UseCustomFont = true;
-        textInstance.FontScale = 0.5f;
-        textInstance.X = 10f;
-        textInstance.Y = 10f;
-        _pausePanel.AddChild(textInstance);
-
-        _resumeButton = new AnimatedButton(_atlas);
-        _resumeButton.Text = "RESUME";
-        _resumeButton.Anchor(Anchor.BottomLeft);
-        _resumeButton.X = 9f;
-        _resumeButton.Y = -9f;
-        _resumeButton.Width = 80;
-        _resumeButton.Click += HandleResumeButtonClicked;
-        _pausePanel.AddChild(_resumeButton);
-
-        AnimatedButton quitButton = new AnimatedButton(_atlas);
-        quitButton.Text = "QUIT";
-        quitButton.Anchor(Anchor.BottomRight);
-        quitButton.X = -9f;
-        quitButton.Y = -9f;
-        quitButton.Width = 80;
-        quitButton.Click += HandleQuitButtonClicked;
-
-        _pausePanel.AddChild(quitButton);
-    }
-
-    private void HandleResumeButtonClicked(object sender, EventArgs e)
-    {
-        // A UI interaction occurred, play the sound effect
-        Core.Audio.PlaySoundEffect(_uiSoundEffect);
-
-        // Make the pause panel invisible to resume the game.
-        _pausePanel.IsVisible = false;
-    }
-
-    private void HandleQuitButtonClicked(object sender, EventArgs e)
-    {
-        // A UI interaction occurred, play the sound effect
-        Core.Audio.PlaySoundEffect(_uiSoundEffect);
-
-        // Go back to the title scene.
-        SceneManager.Instance.ChangeScene(new TitleScene());
-    }
-
     private void InitializeUI()
     {
         GumService.Default.Root.Children.Clear();
 
-        CreatePausePanel();
+        UIManager.Instance.currentUIEntity = new GameSceneUI();
+
+        UIManager.Instance.currentUIEntity.LoadContent(Content);
+
+        ((GameSceneUI)UIManager.Instance.currentUIEntity).CreatePausePanel();
     }
 
 }
