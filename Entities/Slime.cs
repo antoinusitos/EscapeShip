@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
+using MonoGameLibrary;
 using MonoGameLibrary.Graphics;
 using MonoGameLibrary.Input;
 using MonoGameLibrary.Managers;
@@ -39,6 +40,18 @@ public class Slime : Entity
             _sprite.Width,
             _sprite.Height
         );
+
+        Trigger trigger = new Trigger(_entityName + " Trigger");
+        trigger.LoadContent(Core.Content);
+        trigger.Initialize();
+        trigger.AttachTo(this);
+        trigger.SetRelativePosition(-trigger.Collider.Width + 16, -trigger.Collider.Height + 16);
+        //trigger.SetRelativePosition(-500, -trigger.Collider.Height / 2);
+        trigger.SetPosition(_position);
+        trigger.SetScale(4);
+        trigger.Register();
+        trigger.onTriggerEnter += OnTriggerEnter;
+        trigger.onTriggerExit += onTriggerExit;
     }
 
     public override void LoadContent(ContentManager content)
@@ -172,6 +185,22 @@ public class Slime : Entity
             {
                 Velocity.X += speed * deltaTime;
             }
+        }
+    }
+
+    public void OnTriggerEnter(Entity other)
+    {
+        if (other is Container)
+        {
+            Debug.Log("collide Container");
+        }
+    }
+
+    public void onTriggerExit(Entity other)
+    {
+        if (other is Container)
+        {
+            Debug.Log("collide Container");
         }
     }
 }

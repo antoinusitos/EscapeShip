@@ -27,16 +27,6 @@ public class Container : Entity
             _sprite.Width,
             _sprite.Height
         );
-
-        Trigger trigger = new Trigger(_entityName + " Trigger");
-        trigger.LoadContent(Core.Content);
-        trigger.Initialize();
-        trigger.SetPosition(_position);
-        trigger.SetScale(4);
-        trigger.Register();
-        trigger.onTriggerEvent += OnCollidePlayer;
-
-        _children = trigger;
     }
 
     public override void LoadContent(ContentManager content)
@@ -47,10 +37,5 @@ public class Container : Entity
         TextureAtlas _atlas2 = RessourceManager.Instance.GetOrAddTextureAtlas("images/atlas-definition2.xml");
 
         _sprite = RessourceManager.Instance.GetOrAddSprite("container", _atlas2);
-    }
-
-    public void OnCollidePlayer(Entity other)
-    {
-        Debug.Log("collide player");
     }
 }
